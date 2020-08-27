@@ -67,18 +67,29 @@
 
     }
 
+
+
+
     .container .content{
         width:60%;
         height:50%;
-        background-color: rgba(253, 245, 245, 0.52);
+        min-width: 320px;
+        /*background-color: rgba(253, 245, 245, 0.52);*/
+        background-color: #c6a1e3;
         border-radius: 5px;
         box-shadow: 1px 1px 20px 1px rgba(23, 22, 22, 0.87);
         /*align-self: top;*/
 
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
+
+        font-family: 'Nanum Myeongjo', serif;
+        letter-spacing: 2px;
+        color:#2e2e2e;
+        text-shadow: 0px 0px 2px gray;
 
         /*display:none;*/
+
 
 
     }
@@ -90,10 +101,10 @@
         margin-top: 2%;
         justify-content: space-around;
 
-        font-family: 'Nanum Myeongjo', serif;
+        /*font-family: 'Nanum Myeongjo', serif;
         letter-spacing: 2px;
         color:#2e2e2e;
-        text-shadow: 0px 0px 2px gray;
+        text-shadow: 0px 0px 2px gray;*/
 
 
     }
@@ -138,6 +149,10 @@
         transform: scale(0.96);
     }
 
+  .container .btns button:disabled{
+        color:gray;
+        cursor: not-allowed;
+  }
 
 
 
@@ -162,6 +177,7 @@
         border-style: none;
         text-align: center;
         box-shadow: 0 0  3px  purple;
+        margin-left: 10%;
     }
 
     input[type="number"]:focus{
@@ -174,10 +190,106 @@
 
     }
 
-    #two{
+    #three,#four,#two,#result{
         display: none;
-        color:red;
+
     }
+
+
+.questionNo{
+    width:10%;
+    /*margin-right: -15%;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.questionNo h1{
+    color:gray;
+    cursor:default;
+}
+
+.dots{
+    position: relative;
+    top:5px;
+
+}
+
+.dots p{
+
+    text-shadow:0px 0px 3px purple;
+}
+
+
+.additionalInfo{
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+}
+
+table{
+    text-align: center;
+    box-shadow: none;
+}
+
+h4{
+    font-size: 15px;
+    font-family: bold;
+
+}
+
+h4 span{
+    font-weight: lighter;
+}
+
+
+
+table th{
+    font-size: 15px;
+}
+
+
+
+.testResult{
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 450px;
+}
+
+#resultItem{
+    width: 55%;
+}
+.additionalInfo h1{
+    margin-top: 10%;
+    /*color: red; */
+}
+
+.additionalInfo h3{
+    margin-top: 30%;
+}
+
+@media screen and (max-width: 450px){
+    body{
+        overflow-x: scroll;
+    }
+}
+
+@media screen and (max-width: 1019px){
+
+    #resultItem{
+        width:90%;
+        padding:5%;
+    }
+    .additionalInfo h1, .additionalInfo h3{
+        margin: 0;
+        padding:5px ;
+
+    }
+}
+
+
+
 
 </style>
 
@@ -192,19 +304,23 @@
     </div>
 
 <!-- ...............................Content 1 ..........................................................-->
-
+    <img src="../doctor2.png" style="z-index:-2;position:absolute;right:11%" />
     <div class="content" id="one">
+        <div class="dots">
+        <img src="../dots.png" style="width:60px;height:54px">
+         </div>
         <div class="items">
-             <h3 style="font-size:20px">Are you having dry cough?</h3>
+             <h3 style="font-size:20px">Q. Are you having dry cough?</h3>
+             <hr style="border:1px solid gray" />
         <div class="choices">
-            <div class="radio-btn">  <input type="radio" name="cough" value="yes" id="yes"> <label for="yes" > yes</label> </div>
+            <div class="radio-btn">  <input type="radio" name="dryCough" value="yes" class="yes"> <label for="yes" > yes one</label> </div>
 
-            <div class="radio-btn">  <input type="radio" name="cough" value="no" id="no"><label for="no"> no </label> </div>
+            <div class="radio-btn">  <input type="radio" name="dryCough" value="no" class="no"><label for="no"> no one</label> </div>
         </div>
 
         <h3 style="color:#403e3e;">From:</h3>
-        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="1" max="20" value="1"> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
-        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist">
+        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="1" max="20" value="1" id="days-field-one"> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
+        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist" id="range-one" value="1">
         <datalist id="steplist">
             <option value="1" label="1"></option>
             <option value="10" label="10"></option>
@@ -213,23 +329,30 @@
 
         </div>
 
+        <div class="questionNo">
+            <h1>1/4</h1>
+        </div>
 
 
     </div>
 
 <!-- ........................content  two ....................... -->
 <div class="content"  id="two">
+   <div class="dots">
+       <img src="../dots.png" style="width:60px;height:54px">
+         </div>
         <div class="items">
-             <h3 style="font-size:20px">Are you having high fever?</h3>
+             <h3 style="font-size:20px">Q. Are you having high fever?</h3>
+              <hr style="border:1px solid gray" />
         <div class="choices">
-            <div class="radio-btn">  <input type="radio" name="cough" value="yes" id="yes"> <label for="yes" > yes</label> </div>
+            <div class="radio-btn">  <input type="radio" name="highFever" value="yes" class="yes"> <label for="yes" > yes two</label> </div>
 
-            <div class="radio-btn">  <input type="radio" name="cough" value="no" id="no"><label for="no"> no </label> </div>
+            <div class="radio-btn">  <input type="radio" name="highFever" value="no" class="no"><label for="no"> no two </label> </div>
         </div>
 
         <h3 style="color:#403e3e;">From:</h3>
-        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="1" max="20" value="1"> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
-        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist">
+        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="1" max="20" value="1" id="days-field-two"> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
+        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist" id="range-two" value="1">
         <datalist id="steplist">
             <option value="1" label="1"></option>
             <option value="10" label="10"></option>
@@ -238,11 +361,132 @@
 
         </div>
 
-
+         <div class="questionNo">
+            <h1>2/4</h1>
+        </div>
 
     </div>
 
 <!-- ........................................................................................... -->
+
+<!-- ........................content  two ....................... -->
+<div class="content"  id="three">
+    <div class="dots">
+        <img src="../dots.png" style="width:60px;height:54px">
+         </div>
+        <div class="items">
+             <h3 style="font-size:20px">Q. Are you having sore throat? </h3>
+              <hr style="border:1px solid gray" />
+        <div class="choices">
+            <div class="radio-btn">  <input type="radio" name="soreThroat" value="yes"  class="yes"> <label for="yes" > yes two</label> </div>
+
+            <div class="radio-btn">  <input type="radio" name="soreThroat" value="no" class="no"><label for="no"> no  two</label> </div>
+        </div>
+
+        <h3 style="color:#403e3e;">From:</h3>
+        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="1" max="20" value="1" id="days-field-three"> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
+        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist" id="range-three" value="1">
+        <datalist id="steplist">
+            <option value="1" label="1"></option>
+            <option value="10" label="10"></option>
+            <option value="20" label="20"></option>
+        </datalist>
+
+        </div>
+    <div class="questionNo">
+            <h1>3/4</h1>
+        </div>
+    </div>
+
+<!-- ........................................................................................... -->
+<!-- ........................content  three....................... -->
+<div class="content"  id="four">
+        <div class="dots">
+        <img src="../dots.png" style="width:60px;height:54px">
+         </div>
+        <div class="items">
+             <h3 style="font-size:20px">Q. Are you having difficulty in breathing? </h3>
+              <hr style="border:1px solid gray" />
+        <div class="choices">
+            <div class="radio-btn">  <input type="radio" name="difficultyInBreathing" value="yes" class="yes"> <label for="yes" > yes three</label> </div>
+
+            <div class="radio-btn">  <input type="radio" name="difficultyInBreathing" value="no" class="no"><label for="no"> no </label> </div>
+        </div>
+
+        <h3 style="color:#403e3e;">From:</h3>
+        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="1" max="20" value="1" id="days-field-four"> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
+        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist" id="range-four" value="1">
+        <datalist id="steplist">
+            <option value="1" label="1"></option>
+            <option value="10" label="10"></option>
+            <option value="20" label="20"></option>
+        </datalist>
+
+        </div>
+
+             <div class="questionNo">
+            <h1>4/4</h1>
+        </div>
+
+    </div>
+
+<!-- ........................................................................................... -->
+
+
+<!--  ...................................  RESULT ..........................         -->
+
+<div class="content testResult"  id="result" style="background-color:#f2f5f3; padding-bottom :20px;height:auto">
+
+        <div class="items" id="resultItem">
+             <h2><center>COVID-19 TEST REPORT</center></h2>
+              <hr style="border:1px solid gray;" />
+            <h4>Patient ID: <span> #1234</span></h4>
+            <h4>Full Name:<span id="patientName">Unknown</span></h4>
+        <div class="ageSex" style="display:flex;justify-content:space-between;width:50%">
+            <h4>Age: <span id="patientAge">18</h4>
+            <h4>Sex: <span id="sex"> M</span></h4>
+        </div>
+            <h4>Address: <span id="patientAdd">unknown</span></h4>
+
+            <table cellpadding="0" cellspacing="0" border="1" >
+                <tr>
+                    <th>
+                        Symptoms
+                    </th>
+                    <th>Dry Cough</th>
+                    <th>High Fever</th>
+                    <th>Sore Throat</th>
+                    <th>Difficulty In Breathing</th>
+                </tr>
+                <tr>
+                    <th>
+                        Days
+                    </h>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                </tr>
+
+            </table>
+
+            <h4>Probability: <span id="prob"> 45%</span> </h4>
+
+            <h4><u>Note:</u><span style="color:red"> Provided result is a machine predicted result.So donot rely on this result.</span></h4>
+
+        </div>
+
+        <div class="additionalInfo">
+            <h4>Date: <span id="date">20/20/20</span></h4>
+            <h3 >Result:</h3>
+            <h1 >COVID-19 (+)ve </h1>
+            <h5>Better visit health post</h5>
+        </div>
+
+    </div>
+
+<!-- ................................................................................. -->
+
 
 
 
@@ -255,18 +499,89 @@
 
 
 <script type="text/javascript">
+
+let IDs=["#one","#two","#three","#four","#result"];
+let DaysIDs = ["#days-field-one","#days-field-two","#days-field-three","#days-field-four"];
+let RangeIDs = ["#range-one","#range-two","#range-three","#range-four"];
+var status = 0 ;  // starting div #one
+
+
+$("#prev").prop("disabled",true);
+
     $("#next").click(function(){
-        console.log("clicked");
-        $("#one").fadeOut();
-        $("#two").fadeIn();
-        $("#two").css("disply","flex");
+
+
+                if (validateForm(status)){
+
+                        $(IDs[status]).css("display","none");
+                        $(IDs[++(window.status)]).css("display","flex");
+
+                        $("#prev").prop("disabled",false);
+
+                        if(status == 3){
+                            $("#next").text("Result");
+                        }
+                        else
+                            $("#next").text("Next");
+
+                setIDForSelector(status);
+
+                    }
+                else{
+                    alert("please fill up the form ");
+                }
 
     });
 
     $("#prev").click(function(){
-        $("#one").show();
-        $("#two").hide();
+        // console.log(status)
+
+
+                    $(IDs[status]).css("display","none");
+                     $(IDs[--(window.status)]).css("display","flex");
+
+                     if(status==0)
+                        $("#prev").prop("disabled",true);
+
+                    $("#next").text("Next");
+
+            setIDForSelector(status);
+
     });
+
+
+// $(document).click(changeField);
+
+setIDForSelector(status);
+
+function setIDForSelector(status){
+
+      $(RangeIDs[status]).on("input",()=>{
+        $(DaysIDs[status]).val($(RangeIDs[status]).val());
+        console.log(status);
+     });
+
+
+    $(DaysIDs[status]).on("input" , ()=>{
+        $(RangeIDs[status]).val($(DaysIDs[status]).val());
+        console.log("days");
+    });
+}
+
+
+function validateForm(status){
+    console.log(status);
+    console.log($(".yes:checked").eq(status).val());
+    console.log($(".no:checked").eq(status).val());
+
+    if ( $(".yes:checked").eq(status).val() == "yes" || $(".no:checked").eq(status).val() == "no" )
+         return true;
+    else
+     return false;
+}
+
+
+
 </script>
 
 
