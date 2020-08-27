@@ -313,9 +313,9 @@ table th{
              <h3 style="font-size:20px">Q. Are you having dry cough?</h3>
              <hr style="border:1px solid gray" />
         <div class="choices">
-            <div class="radio-btn">  <input type="radio" name="dryCough" value="yes" id="yesOne" > yes one </div>
+            <div class="radio-btn">  <input type="radio" name="dryCough" value="yes" id="yesOne" > yes </div>
 
-            <div class="radio-btn">  <input type="radio" name="dryCough" value="no" id="noOne"> no one</div>
+            <div class="radio-btn">  <input type="radio" name="dryCough" value="no" id="noOne"> no</div>
         </div>
 
         <h3 style="color:#403e3e;">From:</h3>
@@ -345,9 +345,9 @@ table th{
              <h3 style="font-size:20px">Q. Are you having high fever?</h3>
               <hr style="border:1px solid gray" />
         <div class="choices">
-            <div class="radio-btn">  <input type="radio" name="highFever" value="yes" id="yesTwo"> yes two </div>
+            <div class="radio-btn">  <input type="radio" name="highFever" value="yes" id="yesTwo"> yes </div>
 
-            <div class="radio-btn">  <input type="radio" name="highFever" value="no" id="noTwo"> no two</div>
+            <div class="radio-btn">  <input type="radio" name="highFever" value="no" id="noTwo"> no</div>
         </div>
 
         <h3 style="color:#403e3e;">From:</h3>
@@ -378,9 +378,9 @@ table th{
              <h3 style="font-size:20px">Q. Are you having sore throat? </h3>
               <hr style="border:1px solid gray" />
         <div class="choices">
-            <div class="radio-btn">  <input type="radio" name="soreThroat" value="yes" id="yesThree">  yes three </div>
+            <div class="radio-btn">  <input type="radio" name="soreThroat" value="yes" id="yesThree">  yes </div>
 
-            <div class="radio-btn">  <input type="radio" name="soreThroat" value="no" id="noThree"> no  three </div>
+            <div class="radio-btn">  <input type="radio" name="soreThroat" value="no" id="noThree"> no </div>
         </div>
 
         <h3 style="color:#403e3e;">From:</h3>
@@ -408,9 +408,9 @@ table th{
              <h3 style="font-size:20px">Q. Are you having difficulty in breathing? </h3>
               <hr style="border:1px solid gray" />
         <div class="choices">
-            <div class="radio-btn">  <input type="radio" name="difficultyInBreathing" value="yes" id="yesFour">  yes four </div>
+            <div class="radio-btn">  <input type="radio" name="difficultyInBreathing" value="yes" id="yesFour">  yes  </div>
 
-            <div class="radio-btn">  <input type="radio" name="difficultyInBreathing" value="no" id="noFour"> no four </div>
+            <div class="radio-btn">  <input type="radio" name="difficultyInBreathing" value="no" id="noFour"> no</div>
         </div>
 
         <h3 style="color:#403e3e;">From:</h3>
@@ -432,6 +432,15 @@ table th{
 
 <!-- ........................................................................................... -->
 
+<!-- js to collect variables -->
+
+
+
+
+
+
+
+
 
 <!--  ...................................  RESULT ..........................         -->
 
@@ -448,7 +457,7 @@ table th{
         </div>
             <h4>Address: <span id="patientAdd">unknown</span></h4>
 
-            <table cellpadding="0" cellspacing="0" border="1" >
+            <table cellpadding="0" cellspacing="0" border="1" id="symptomsTable">
                 <tr>
                     <th>
                         Symptoms
@@ -472,15 +481,15 @@ table th{
 
             <h4>Probability: <span id="prob"> 45%</span> </h4>
 
-            <h4><u>Note:</u><span style="color:red"> Provided result is a machine predicted result.So donot rely on this result.</span></h4>
+            <h4><u>Note:</u><span style="color:red"> Provided result is a machine predicted result.So donot rely on it.</span></h4>
 
         </div>
 
         <div class="additionalInfo">
             <h4>Date: <span id="date">20/20/20</span></h4>
             <h3 >Result:</h3>
-            <h1 style="color:red;font-size:20px" >COVID-19 (+)ve </h1>
-            <h5>Better visit health post</h5>
+            <h1 style="color:red;font-size:20px" id="covidResult"></h1>
+            <!-- <h5>Better visit health post</h5> -->
         </div>
 
     </div>
@@ -504,44 +513,15 @@ let IDs=["#one","#two","#three","#four","#result"];
 let DaysIDs = ["#days-field-one","#days-field-two","#days-field-three","#days-field-four"];
 let RangeIDs = ["#range-one","#range-two","#range-three","#range-four"];
 let containers = ["One","Two","Three","Four"];
+let enteredValue = [0,0,0,0]; //inititalized
 var status = 0 ;  // starting div #one
 
 
 
 
-    $("#next").click(function(){
-        console.log("next");
-
-
-                if (validateForm(status)){
-
-                        $(IDs[status]).css("display","none");
-                        $(IDs[++status]).css("display","flex");
-
-                        $("#prev").prop("disabled",false);
-
-                        if(status == 3){
-                            $("#next").text("Result");
-                        }
-                        else
-                            $("#next").text("Next");
-
-                       setIDForSelector(status);
-                       disableEnableFields(status);
-
-                    }
-                else{
-                    alert("please fill up the form ");
-                }
-
-
-
-    });
+    $("#next").click(getNextContent);
 
     $("#prev").click(function(){
-        // console.log(status)
-
-
 
                     $(IDs[status]).css("display","none");
                      $(IDs[--status]).css("display","flex");
@@ -555,6 +535,39 @@ var status = 0 ;  // starting div #one
             disableEnableFields(status);
 
     });
+
+
+
+
+function getNextContent(){
+      if (validateForm(status)){
+
+                        $(IDs[status]).css("display","none");
+                        $(IDs[++status]).css("display","flex");
+
+                        $("#prev").prop("disabled",false);
+
+                        if(status == 3){
+                            $("#next").text("Result");
+                        }
+                        else if(status == 4){
+                            displayResult();
+                        }
+                        else
+                            $("#next").text("Next");
+
+                       setIDForSelector(status);
+                       disableEnableFields(status);
+
+                    }
+                else{
+                    alert("please fill up the form ");
+                }
+}
+
+
+
+
 
 
 // $(document).click(changeField);
@@ -576,16 +589,8 @@ function setIDForSelector(status){
 
 
 function validateForm(status){
-
-  console.log(status);
-
-
-    console.log($("#no"+containers[status]+":checked").val());
-    console.log($("#yes"+containers[status]+":checked").val());
-
-
-
     if ( $("#yes"+containers[status]+":checked").val() == "yes" || $("#no"+containers[status]+":checked").val() == "no" ){
+         enteredValue[status] = $(DaysIDs[status]).val();
          return true;
      }
     else{
@@ -620,6 +625,62 @@ function disableEnableFields(status){
     })
 
 }
+
+
+
+function displayResult(){
+   let table = document.getElementById("symptomsTable");
+   let Probability = document.getElementById("prob");
+   let covidResult  =  document.getElementById("covidResult");
+
+for(var i = 1 ; i < enteredValue.length+1 ;i++ )
+    table.rows[1].cells[i].innerText = enteredValue[i-1];
+
+
+let prob  =  Number(symptomsTesting().toFixed(5)) ;
+
+Probability.innerText = prob *100 + "%" ;
+
+if (prob > 0.5)
+  covidResult.innerHTML =`COVID-19 (+)ve <br/> <span style="font-size:12px;color:black"> Better visit health post </span>`;
+else{
+    covidResult.innerHTML=`<span style="color:green" > COVID-19 (-)ve </span> <br/> <span style="font-size:12px;color:black"> Stay Home Stay Safe </span>`;
+}
+
+}
+
+
+// ----------------ML implementation --------------------
+function sigmoid(x){
+    return 1/(1+Math.exp(-x));
+}
+
+
+function symptomsTesting(){  //logistic regression model implementations
+
+let theta = [-16.20237248,0.66323204,0.66198745,0.33980908,0.58267323];
+
+let prob = sigmoid(1*theta[0] + enteredValue[0]*theta[1] + enteredValue[1] * theta[2] + enteredValue[2] * theta[3] + enteredValue[3] * theta [4]) ;
+
+return prob;
+
+}
+
+//--------------------------------------------------------
+
+
+
+
+// enter key handling
+
+
+$(document).on("keypress",function(e){
+    if(e.which == 13)
+        getNextContent();
+});
+
+
+// --------------------
 
 
 
