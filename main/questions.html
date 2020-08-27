@@ -298,7 +298,7 @@ table th{
 <div class="container">
     <div class="nav-bar">
          <ul>
-            <li class="nav-bar-btn" id="home"><a href="#">Home</a></li>
+            <li class="nav-bar-btn" id="home"><a href="#">Back to Home</a></li>
           <!--  <li class="nav-bar-btn" id="exit"><a href="#">Exit</a></li> -->
         </ul>
     </div>
@@ -313,14 +313,14 @@ table th{
              <h3 style="font-size:20px">Q. Are you having dry cough?</h3>
              <hr style="border:1px solid gray" />
         <div class="choices">
-            <div class="radio-btn">  <input type="radio" name="dryCough" value="yes" class="yes"> <label for="yes" > yes one</label> </div>
+            <div class="radio-btn">  <input type="radio" name="dryCough" value="yes" id="yesOne" > yes one </div>
 
-            <div class="radio-btn">  <input type="radio" name="dryCough" value="no" class="no"><label for="no"> no one</label> </div>
+            <div class="radio-btn">  <input type="radio" name="dryCough" value="no" id="noOne"> no one</div>
         </div>
 
         <h3 style="color:#403e3e;">From:</h3>
-        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="1" max="20" value="1" id="days-field-one"> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
-        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist" id="range-one" value="1">
+        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="0" max="20" value="0" id="days-field-one" disabled> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
+        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist" id="range-one" value="0" disabled>
         <datalist id="steplist">
             <option value="1" label="1"></option>
             <option value="10" label="10"></option>
@@ -345,14 +345,14 @@ table th{
              <h3 style="font-size:20px">Q. Are you having high fever?</h3>
               <hr style="border:1px solid gray" />
         <div class="choices">
-            <div class="radio-btn">  <input type="radio" name="highFever" value="yes" class="yes"> <label for="yes" > yes two</label> </div>
+            <div class="radio-btn">  <input type="radio" name="highFever" value="yes" id="yesTwo"> yes two </div>
 
-            <div class="radio-btn">  <input type="radio" name="highFever" value="no" class="no"><label for="no"> no two </label> </div>
+            <div class="radio-btn">  <input type="radio" name="highFever" value="no" id="noTwo"> no two</div>
         </div>
 
         <h3 style="color:#403e3e;">From:</h3>
-        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="1" max="20" value="1" id="days-field-two"> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
-        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist" id="range-two" value="1">
+        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="0" max="20" value="0" id="days-field-two" disabled> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
+        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist" id="range-two" value="0" disabled>
         <datalist id="steplist">
             <option value="1" label="1"></option>
             <option value="10" label="10"></option>
@@ -369,7 +369,7 @@ table th{
 
 <!-- ........................................................................................... -->
 
-<!-- ........................content  two ....................... -->
+<!-- ........................content  three ....................... -->
 <div class="content"  id="three">
     <div class="dots">
         <img src="../dots.png" style="width:60px;height:54px">
@@ -378,14 +378,14 @@ table th{
              <h3 style="font-size:20px">Q. Are you having sore throat? </h3>
               <hr style="border:1px solid gray" />
         <div class="choices">
-            <div class="radio-btn">  <input type="radio" name="soreThroat" value="yes"  class="yes"> <label for="yes" > yes two</label> </div>
+            <div class="radio-btn">  <input type="radio" name="soreThroat" value="yes" id="yesThree">  yes three </div>
 
-            <div class="radio-btn">  <input type="radio" name="soreThroat" value="no" class="no"><label for="no"> no  two</label> </div>
+            <div class="radio-btn">  <input type="radio" name="soreThroat" value="no" id="noThree"> no  three </div>
         </div>
 
         <h3 style="color:#403e3e;">From:</h3>
-        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="1" max="20" value="1" id="days-field-three"> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
-        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist" id="range-three" value="1">
+        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="0" max="20" value="0" id="days-field-three" disabled> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
+        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist" id="range-three" value="0" disabled>
         <datalist id="steplist">
             <option value="1" label="1"></option>
             <option value="10" label="10"></option>
@@ -399,7 +399,7 @@ table th{
     </div>
 
 <!-- ........................................................................................... -->
-<!-- ........................content  three....................... -->
+<!-- ........................content  four ....................... -->
 <div class="content"  id="four">
         <div class="dots">
         <img src="../dots.png" style="width:60px;height:54px">
@@ -408,14 +408,14 @@ table th{
              <h3 style="font-size:20px">Q. Are you having difficulty in breathing? </h3>
               <hr style="border:1px solid gray" />
         <div class="choices">
-            <div class="radio-btn">  <input type="radio" name="difficultyInBreathing" value="yes" class="yes"> <label for="yes" > yes three</label> </div>
+            <div class="radio-btn">  <input type="radio" name="difficultyInBreathing" value="yes" id="yesFour">  yes four </div>
 
-            <div class="radio-btn">  <input type="radio" name="difficultyInBreathing" value="no" class="no"><label for="no"> no </label> </div>
+            <div class="radio-btn">  <input type="radio" name="difficultyInBreathing" value="no" id="noFour"> no four </div>
         </div>
 
         <h3 style="color:#403e3e;">From:</h3>
-        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="1" max="20" value="1" id="days-field-four"> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
-        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist" id="range-four" value="1">
+        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="0" max="20" value="0" id="days-field-four" disabled> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
+        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist" id="range-four" value="0" disabled>
         <datalist id="steplist">
             <option value="1" label="1"></option>
             <option value="10" label="10"></option>
@@ -479,7 +479,7 @@ table th{
         <div class="additionalInfo">
             <h4>Date: <span id="date">20/20/20</span></h4>
             <h3 >Result:</h3>
-            <h1 >COVID-19 (+)ve </h1>
+            <h1 style="color:red;font-size:20px" >COVID-19 (+)ve </h1>
             <h5>Better visit health post</h5>
         </div>
 
@@ -503,18 +503,20 @@ table th{
 let IDs=["#one","#two","#three","#four","#result"];
 let DaysIDs = ["#days-field-one","#days-field-two","#days-field-three","#days-field-four"];
 let RangeIDs = ["#range-one","#range-two","#range-three","#range-four"];
+let containers = ["One","Two","Three","Four"];
 var status = 0 ;  // starting div #one
 
 
-$("#prev").prop("disabled",true);
+
 
     $("#next").click(function(){
+        console.log("next");
 
 
                 if (validateForm(status)){
 
                         $(IDs[status]).css("display","none");
-                        $(IDs[++(window.status)]).css("display","flex");
+                        $(IDs[++status]).css("display","flex");
 
                         $("#prev").prop("disabled",false);
 
@@ -524,12 +526,15 @@ $("#prev").prop("disabled",true);
                         else
                             $("#next").text("Next");
 
-                setIDForSelector(status);
+                       setIDForSelector(status);
+                       disableEnableFields(status);
 
                     }
                 else{
                     alert("please fill up the form ");
                 }
+
+
 
     });
 
@@ -537,8 +542,9 @@ $("#prev").prop("disabled",true);
         // console.log(status)
 
 
+
                     $(IDs[status]).css("display","none");
-                     $(IDs[--(window.status)]).css("display","flex");
+                     $(IDs[--status]).css("display","flex");
 
                      if(status==0)
                         $("#prev").prop("disabled",true);
@@ -546,39 +552,81 @@ $("#prev").prop("disabled",true);
                     $("#next").text("Next");
 
             setIDForSelector(status);
+            disableEnableFields(status);
 
     });
 
 
 // $(document).click(changeField);
 
-setIDForSelector(status);
 
 function setIDForSelector(status){
 
       $(RangeIDs[status]).on("input",()=>{
         $(DaysIDs[status]).val($(RangeIDs[status]).val());
-        console.log(status);
+
      });
 
 
     $(DaysIDs[status]).on("input" , ()=>{
         $(RangeIDs[status]).val($(DaysIDs[status]).val());
-        console.log("days");
+
     });
 }
 
 
 function validateForm(status){
-    console.log(status);
-    console.log($(".yes:checked").eq(status).val());
-    console.log($(".no:checked").eq(status).val());
 
-    if ( $(".yes:checked").eq(status).val() == "yes" || $(".no:checked").eq(status).val() == "no" )
+  console.log(status);
+
+
+    console.log($("#no"+containers[status]+":checked").val());
+    console.log($("#yes"+containers[status]+":checked").val());
+
+
+
+    if ( $("#yes"+containers[status]+":checked").val() == "yes" || $("#no"+containers[status]+":checked").val() == "no" ){
          return true;
-    else
+     }
+    else{
      return false;
+    }
+
+    // return true;
 }
+
+
+function disableEnableFields(status){
+// on check radio yes
+    $("#yes"+containers[status]).on("click",function(){
+
+        $(DaysIDs[status]).prop("disabled",false);
+        $(RangeIDs[status]).prop("disabled",false);
+
+        //reset range and days to one
+        $(DaysIDs[status]).val(1);
+        $(RangeIDs[status]).val(1);
+    })
+
+    // on check radio no
+    $("#no"+containers[status]).on("click",function(){
+        $(DaysIDs[status]).prop("disabled",true);
+        $(RangeIDs[status]).prop("disabled",true);
+
+        //reset range and days to zero
+
+        $(DaysIDs[status]).val(0);
+        $(RangeIDs[status]).val(0);
+    })
+
+}
+
+
+
+$("#prev").prop("disabled",true);
+setIDForSelector(status);
+disableEnableFields(status);
+
 
 
 
