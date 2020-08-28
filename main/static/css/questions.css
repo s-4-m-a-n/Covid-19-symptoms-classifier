@@ -172,13 +172,13 @@
 
 
 .btns button#prev{
-           background-image: url("../undo.svg");
+           background-image: url("../../../assests/images/undo.svg");
            background-repeat : no-repeat;
            /*color:#c90404;*/
            background-position: -1% ;
 }
 .btns button#next{
-           background-image: url("../next.svg");
+           background-image: url("../../../assests/images/next.svg");
            background-repeat : no-repeat;
            /*color:green;*/
            background-position: 102% 0px;
