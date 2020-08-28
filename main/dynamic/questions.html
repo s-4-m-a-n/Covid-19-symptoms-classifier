@@ -156,6 +156,31 @@
 
 
 
+#drBot{
+
+    animation-name: botAnimation;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+
+   }
+
+   @keyframes botAnimation{
+        0%{
+         transform:translateY(0%) ;
+         }
+        70%{
+            transform:translateY(-10%) rotate(5deg) translateX(10%);
+            }
+        100%{
+            transform:translateY(0%);
+        }
+   }
+
+
+
+
+
+
 .btns button#prev{
            background-image: url("../undo.svg");
            background-repeat : no-repeat;
@@ -255,14 +280,22 @@ table th{
     display: flex;
     flex-wrap: wrap;
     min-width: 450px;
+    border: 1px solid black;
 }
 
 #resultItem{
     width: 55%;
+    border : 1px solid black;
+}
+
+.additionalInfo{
+    border:1px solid black;
+    width:30%;
 }
 .additionalInfo h1{
     margin-top: 10%;
     /*color: red; */
+
 }
 
 .additionalInfo h3{
@@ -281,6 +314,9 @@ table th{
         width:90%;
         padding:5%;
     }
+    .additionalInfo{
+        width:90%;
+    }
     .additionalInfo h1, .additionalInfo h3{
         margin: 0;
         padding:5px ;
@@ -298,13 +334,13 @@ table th{
 <div class="container">
     <div class="nav-bar">
          <ul>
-            <li class="nav-bar-btn" id="home"><a href="#">Back to Home</a></li>
+            <li class="nav-bar-btn" id="home"><a href="index.html">Back to Home</a></li>
           <!--  <li class="nav-bar-btn" id="exit"><a href="#">Exit</a></li> -->
         </ul>
     </div>
 
 <!-- ...............................Content 1 ..........................................................-->
-    <img src="../doctor2.png" style="z-index:-2;position:absolute;right:11%" />
+    <img src="../doctor2.png" style="z-index:-2;position:absolute;right:11%" id="drBot" />
     <div class="content" id="one">
         <div class="dots">
         <img src="../dots.png" style="width:60px;height:54px">
@@ -313,7 +349,7 @@ table th{
              <h3 style="font-size:20px">Q. Are you having dry cough?</h3>
              <hr style="border:1px solid gray" />
         <div class="choices">
-            <div class="radio-btn">  <input type="radio" name="dryCough" value="yes" id="yesOne" > yes </div>
+            <div class="radio-btn">  <input type="radio" name="dryCough" value="yes" id="yesOne" checked> yes </div>
 
             <div class="radio-btn">  <input type="radio" name="dryCough" value="no" id="noOne"> no</div>
         </div>
@@ -345,7 +381,7 @@ table th{
              <h3 style="font-size:20px">Q. Are you having high fever?</h3>
               <hr style="border:1px solid gray" />
         <div class="choices">
-            <div class="radio-btn">  <input type="radio" name="highFever" value="yes" id="yesTwo"> yes </div>
+            <div class="radio-btn">  <input type="radio" name="highFever" value="yes" id="yesTwo" checked> yes </div>
 
             <div class="radio-btn">  <input type="radio" name="highFever" value="no" id="noTwo"> no</div>
         </div>
@@ -378,7 +414,7 @@ table th{
              <h3 style="font-size:20px">Q. Are you having sore throat? </h3>
               <hr style="border:1px solid gray" />
         <div class="choices">
-            <div class="radio-btn">  <input type="radio" name="soreThroat" value="yes" id="yesThree">  yes </div>
+            <div class="radio-btn">  <input type="radio" name="soreThroat" value="yes" id="yesThree" checked>  yes </div>
 
             <div class="radio-btn">  <input type="radio" name="soreThroat" value="no" id="noThree"> no </div>
         </div>
@@ -408,7 +444,7 @@ table th{
              <h3 style="font-size:20px">Q. Are you having difficulty in breathing? </h3>
               <hr style="border:1px solid gray" />
         <div class="choices">
-            <div class="radio-btn">  <input type="radio" name="difficultyInBreathing" value="yes" id="yesFour">  yes  </div>
+            <div class="radio-btn">  <input type="radio" name="difficultyInBreathing" value="yes" id="yesFour" checked>  yes  </div>
 
             <div class="radio-btn">  <input type="radio" name="difficultyInBreathing" value="no" id="noFour"> no</div>
         </div>
@@ -481,15 +517,15 @@ table th{
 
             <h4>Probability: <span id="prob"> 45%</span> </h4>
 
-            <h4><u>Note:</u><span style="color:red"> Provided result is a machine predicted result.So donot rely on it.</span></h4>
+            <h4><u>Note:</u><span style="color:red;font-size:10px;font-style:italic;"> Provided result is a machine predicted result.So donot rely on it.Stay at home if you feel unwell. If you have a fever, cough and difficulty breathing, seek medical attention and call in advance. Follow the directions of your local health authority.</span></h4>
 
         </div>
 
         <div class="additionalInfo">
             <h4>Date: <span id="date">20/20/20</span></h4>
             <h3 >Result:</h3>
-            <h1 style="color:red;font-size:20px" id="covidResult"></h1>
-            <!-- <h5>Better visit health post</h5> -->
+            <h1 style="color:red;font-size:20px" id="covidResult"> Covid-19(+)ve</h1>
+
         </div>
 
     </div>
@@ -503,6 +539,7 @@ table th{
     <div class="btns">
         <button id="prev">Prev</button>
         <button id="next">Next</button>
+        <button id="print" style="display:none;font-size:15px;color:white;margin-left:45%;box-shadow:0 0 5px black; border :2px solid white;border-radius:5px;text-shadow:1px 1px 1px black" onclick="printReport('.testResult');"> Print </button>
     </div>
 </div>
 
@@ -552,6 +589,9 @@ function getNextContent(){
                         }
                         else if(status == 4){
                             displayResult();
+                            $("#next").css("display","none");
+                            $("#prev").css("display","none");
+                            $("#print").css("display","block");
                         }
                         else
                             $("#next").text("Next");
@@ -647,6 +687,10 @@ else{
     covidResult.innerHTML=`<span style="color:green" > COVID-19 (-)ve </span> <br/> <span style="font-size:12px;color:black"> Stay Home Stay Safe </span>`;
 }
 
+
+var utc = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+document.getElementById("date").innerText = utc;
+
 }
 
 
@@ -675,13 +719,38 @@ return prob;
 
 
 $(document).on("keypress",function(e){
-    if(e.which == 13)
+    if(e.which == 13 && status != 4)
         getNextContent();
 });
 
 
 // --------------------
+// ---------- Print Test Report ----------------------------
 
+function printReport(elem)
+{
+   renderMe($('<div/>').append($(elem).clone()).html());
+}
+
+function renderMe(data) {
+    var mywindow = window.open('', 'www.covid-19SymptomsDiagnosis.com', 'height=1000,width=1000');
+    mywindow.document.write('<html><head><title>invoice-box</title>');
+    // mywindow.document.write('<link rel="stylesheet" href="printstyle.css" type="text/css" />');
+    mywindow.document.write('</head><body >');
+    mywindow.document.write(data);
+    mywindow.document.write('</body></html>');
+
+
+    setTimeout(function () {
+    mywindow.print();
+    mywindow.close();
+    }, 1000)
+    return true;
+}
+
+
+
+//-----------------------------------------------------------
 
 
 $("#prev").prop("disabled",true);
