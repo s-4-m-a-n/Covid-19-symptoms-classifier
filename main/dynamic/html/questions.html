@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!-- =%-->
+<html>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<head>
+    <title>fill up the form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/questions.css" >
+
+<body>
+
+<div class="container">
+    <div class="nav-bar">
+         <ul>
+            <li class="nav-bar-btn" id="home"><a href="../html/index.html">Back to Home</a></li>
+          <!--  <li class="nav-bar-btn" id="exit"><a href="#">Exit</a></li> -->
+        </ul>
+    </div>
+
+  <img src="../../../assests/images/doctor2.png" style="z-index:-2;position:absolute;right:11%" id="drBot" />
+<!-- ...............................Content 1 ..........................................................-->
+    <div class="content" id="one">
+        <div class="dots">
+        <img src="../../../assests/images/dots.png" style="width:60px;height:54px">
+         </div>
+        <div class="items">
+             <h3 style="font-size:20px">Q. Are you having dry cough?</h3>
+             <hr style="border:1px solid gray" />
+        <div class="choices">
+            <div class="radio-btn">  <input type="radio" name="dryCough" value="yes" id="yesOne" checked> yes </div>
+
+            <div class="radio-btn">  <input type="radio" name="dryCough" value="no" id="noOne"> no</div>
+        </div>
+
+        <h3 style="color:#403e3e;">From:</h3>
+        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="0" max="20" value="0" id="days-field-one" disabled> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
+        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist" id="range-one" value="0" disabled>
+        <datalist id="steplist">
+            <option value="1" label="1"></option>
+            <option value="10" label="10"></option>
+            <option value="20" label="20"></option>
+        </datalist>
+
+        </div>
+
+        <div class="questionNo">
+            <h1>1/4</h1>
+        </div>
+
+
+    </div>
+
+<!-- ........................content  two ....................... -->
+<div class="content"  id="two">
+   <div class="dots">
+       <img src="../../../assests/images/dots.png" style="width:60px;height:54px">
+         </div>
+        <div class="items">
+             <h3 style="font-size:20px">Q. Are you having high fever?</h3>
+              <hr style="border:1px solid gray" />
+        <div class="choices">
+            <div class="radio-btn">  <input type="radio" name="highFever" value="yes" id="yesTwo" checked> yes </div>
+
+            <div class="radio-btn">  <input type="radio" name="highFever" value="no" id="noTwo"> no</div>
+        </div>
+
+        <h3 style="color:#403e3e;">From:</h3>
+        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="0" max="20" value="0" id="days-field-two" disabled> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
+        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist" id="range-two" value="0" disabled>
+        <datalist id="steplist">
+            <option value="1" label="1"></option>
+            <option value="10" label="10"></option>
+            <option value="20" label="20"></option>
+        </datalist>
+
+        </div>
+
+         <div class="questionNo">
+            <h1>2/4</h1>
+        </div>
+
+    </div>
+
+<!-- ........................................................................................... -->
+
+<!-- ........................content  three ....................... -->
+<div class="content"  id="three">
+    <div class="dots">
+        <img src="../../../assests/images/dots.png" style="width:60px;height:54px">
+         </div>
+        <div class="items">
+             <h3 style="font-size:20px">Q. Are you having sore throat? </h3>
+              <hr style="border:1px solid gray" />
+        <div class="choices">
+            <div class="radio-btn">  <input type="radio" name="soreThroat" value="yes" id="yesThree" checked>  yes </div>
+
+            <div class="radio-btn">  <input type="radio" name="soreThroat" value="no" id="noThree"> no </div>
+        </div>
+
+        <h3 style="color:#403e3e;">From:</h3>
+        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="0" max="20" value="0" id="days-field-three" disabled> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
+        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist" id="range-three" value="0" disabled>
+        <datalist id="steplist">
+            <option value="1" label="1"></option>
+            <option value="10" label="10"></option>
+            <option value="20" label="20"></option>
+        </datalist>
+
+        </div>
+    <div class="questionNo">
+            <h1>3/4</h1>
+        </div>
+    </div>
+
+<!-- ........................................................................................... -->
+<!-- ........................content  four ....................... -->
+<div class="content"  id="four">
+        <div class="dots">
+        <img src="../../../assests/images/dots.png" style="width:60px;height:54px">
+         </div>
+        <div class="items">
+             <h3 style="font-size:20px">Q. Are you having difficulty in breathing? </h3>
+              <hr style="border:1px solid gray" />
+        <div class="choices">
+            <div class="radio-btn">  <input type="radio" name="difficultyInBreathing" value="yes" id="yesFour" >  yes  </div>
+
+            <div class="radio-btn">  <input type="radio" name="difficultyInBreathing" value="no" id="noFour"> no</div>
+        </div>
+
+        <h3 style="color:#403e3e;">From:</h3>
+        <div class="days-field" style="margin-top:-9%;margin-left:10%">  <input type="number" name="days" min="0" max="20" value="0" id="days-field-four" disabled> <label for="days" style="margin-left:2px;font-family:cursive">days</label> </div>
+        <input type="range" name="days-select" min="1" max="20" step="1" list="steplist" id="range-four" value="0" disabled>
+        <datalist id="steplist">
+            <option value="1" label="1"></option>
+            <option value="10" label="10"></option>
+            <option value="20" label="20"></option>
+        </datalist>
+
+        </div>
+
+             <div class="questionNo">
+            <h1>4/4</h1>
+        </div>
+
+    </div>
+
+<!-- ........................................................................................... -->
+
+<!-- js to collect variables -->
+
+
+
+
+
+
+
+
+
+<!--  ...................................  RESULT ..........................         -->
+
+<div class="content testResult"  id="result" style="background-color:#f2f5f3; padding-bottom :20px;height:auto">
+
+        <div class="items" id="resultItem">
+             <h2><center>COVID-19 TEST REPORT</center></h2>
+              <hr style="border:1px solid gray;" />
+            <h4>Patient ID: <span id="PATIENT_ID"> #1234</span></h4>
+            <h4>Full Name:<span id="patientName">Unknown</span></h4>
+        <div class="ageSex" style="display:flex;justify-content:space-between;width:50%">
+            <h4>Age: <span id="patientAge">18</h4>
+            <h4>Sex: <span id="sex"> M</span></h4>
+        </div>
+            <h4>Address: <span id="patientAdd">unknown</span></h4>
+
+            <table cellpadding="0" cellspacing="0" border="1" id="symptomsTable">
+                <tr>
+                    <th>
+                        Symptoms
+                    </th>
+                    <th>Dry Cough</th>
+                    <th>High Fever</th>
+                    <th>Sore Throat</th>
+                    <th>Difficulty In Breathing</th>
+                </tr>
+                <tr>
+                    <th>
+                        Days
+                    </h>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                </tr>
+
+            </table>
+
+            <h4>Probability: <span id="prob"> 45%</span> </h4>
+
+            <h4><u>Note:</u><span style="color:red;font-size:10px;font-style:italic;"> Provided result is a machine predicted result.So donot rely on it.Stay at home if you feel unwell. If you have a fever, cough and difficulty breathing, seek medical attention and call in advance. Follow the directions of your local health authority.</span></h4>
+
+        </div>
+
+        <div class="additionalInfo">
+            <h4>Date: <span id="date">20/20/20</span></h4>
+            <h3 >Result:</h3>
+            <h1 style="color:red;font-size:20px" id="covidResult"> Covid-19(+)ve</h1>
+
+        </div>
+
+    </div>
+
+<!-- ................................................................................. -->
+
+
+
+
+
+    <div class="btns">
+        <button id="prev">Prev</button>
+        <button id="next">Next</button>
+        <button id="print" style="display:none;font-size:15px;color:white;margin-left:45%;box-shadow:0 0 5px black; border :2px solid white;border-radius:5px;text-shadow:1px 1px 1px black;" onclick="printReport('.testResult');" > Print </button>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="../js/questions.js" ></script>
+
+
+
+</body>
+</html>

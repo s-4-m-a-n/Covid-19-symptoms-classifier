@@ -95,12 +95,14 @@
 
         }
 
-        .right-portion form{
+    .form1{
             /*background-color: #bfbfbf;*/
             background-color: #bbbdbb;
             border-radius: 2px;
             color: #4d4b4b;
         }
+
+
         .row{
             width: auto;
             display: flex;

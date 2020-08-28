@@ -4,8 +4,8 @@
         let male = document.getElementById("male");
         let female = document.getElementById("female");
         let other   = document.getElementById("other");
-        let isInfected = document.getElementById("isInfected");
         let address = document.getElementById("address");
+        let sex;
 
 
         let fullName_alert = document.getElementById("fullName-alert");
@@ -21,7 +21,7 @@
         let errorFlag;
 
     //individual checking
-        function checkFullName(){
+    function checkFullName(){
 
             if (fullName.value.length < 6 || fullName.value.length >20 ){
                 fullName_alert.innerText = " Name cannot be blank or must be longer than 5 characters and lesser than 20 characters";
@@ -60,7 +60,7 @@
                     if (this.readyState == 4 && this.status == 200) {
                         email_alert.innerHTML = this.responseText;
 
-                        if (this.responseText == "email already registered" ){
+                        if (this.responseText == "email is already registered" ){
                             errorFlag = 1 ;
                         }
 
@@ -69,7 +69,7 @@
                         console.log("error loading ajax")
                     }
                 };
-                xmlhttp.open("GET", "models/checkEmail.php?email="+email.value ,false);
+                xmlhttp.open("GET", "../models/checkEmail.php?email="+email.value ,false);
                 xmlhttp.send();
 
                 }
@@ -84,17 +84,29 @@
             }
             else{
                 gender_alert.innerText = "";
+                if(male.checked){
+                    sex = male.value;
+                }
+                else if (female.checked)
+                    sex = female.value;
+                else{
+                    sex = other.value;
+                }
+
+
             }
     }
 
 
     function checkAge(){
-         if(age.value <=18 ){
-                age_alert.innerText = " you age must be between (18-100)  ";
+         if(age.value <=0 ){
+                age_alert.innerText = " you age must be greater than 0  ";
                 errorFlag = 1;
             }
             else{
                 age_alert.innerText = "";
+
+
             }
     }
 
@@ -117,7 +129,7 @@
             checkGender();
             checkAge();
             checkAddress();
-console.log(errorFlag);
+
             return (errorFlag == 0) ? true : false ;
 
         }

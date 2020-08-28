@@ -1,13 +1,3 @@
-<?php
-
-// session_start();
-
-// if (isset($_SESSION['registered'])){
-//     header('Location:../covid-19 survey/message.php');
-// }
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Personal details Form</title>
    <link type="text/css" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans&display=swap" rel="stylesheet" >
-   <link rel="stylesheet" type="text/css" href="personalInfo.css">
+   <link rel="stylesheet" type="text/css" href="../css/personalInfo.css">
 
    <style>
     .alert-msg{
@@ -32,7 +22,7 @@
 <div class="container">
     <nav class="nav-bar">
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="#">about</a></li>
             <li><a href="#">contact us</a></li>
         </ul>
@@ -46,19 +36,20 @@
             </h1>
             </div>
             <div class="pic">
-                <img src="../interview.png">
+                <img src="../../../assests/images/interview.png">
             </div>
         </div>
          <div class="right-portion">
              <div class="form">
                     <center><h2 style="padding:2%;font-family: 'Work Sans', sans-serif; color: #4d4b4b">PERSONAL DETAILS</h2></center>
-                 <form method="POST" action="/project/covid-19 survey/surveyForm.php" onsubmit="return formValidation()">
+
+              <div class="form1" style="background-color: #bbbdbb; border-radius: 2px;color: #4d4b4b;">
                      <div class="row">
                          <div class="col-1">
                              <label for="Full Name">Full Name:</label>
                          </div>
                          <div class="col-2">
-                            <input type="text" name="fullName" id="fullName" autocomplete="off" autofocus  onblur=" checkFullName()">
+                            <input type="text" name="fullName" id="fullName" autocomplete="off" autofocus  onblur="checkFullName()">
                            <br/>
                            <span class="alert-msg" id="fullName-alert"></span>
                         </div>
@@ -100,17 +91,17 @@
                              <label for="age">age:</label>
                          </div>
                          <div class="col-2">
-                             <input type="number" name="age" id="age" size="3" maxlength="3" min="18" max="100" onblur="checkAge()" >
+                             <input type="number" name="age" id="age" size="3" maxlength="3" min="1" max="100" onblur="checkAge()" >
                              <br/>
                            <span class="alert-msg" id="age-alert"></span>
                          </div>
                      </div>
 
                      <div class="submit-btn">
-                         <button type="submit"> Submit</button>
+                         <button onclick=" submitEvent()" > Submit</button>
                      </div>
 
-                 </form>
+</div>
              </div>
          </div>
     </div>
@@ -124,18 +115,28 @@
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript" src="personalInfo.js"></script>
+<script type="text/javascript" src="../js/personalInfo.js"></script>
 <!-- jquery for ajax -->
+s
+<script type="text/javascript">
+
+    function submitEvent(){
+            if(formValidation()){
+                //temp storage
+                 sessionStorage.setItem("fullName", fullName.value);
+                 sessionStorage.setItem("email", email.value);
+                 sessionStorage.setItem("age", age.value);
+                 sessionStorage.setItem("sex", sex);
+                 sessionStorage.setItem("address", address.value);
+
+                //open next page
+                    window.location.href='questions.html';
+
+            }
+
+}
+</script>
+
 
 </body>
 </html>
-
-<!-- errors -->
-
-<?php
-
-// if (isset($_SESSION['registered'])){
-//     header('Location:../covid-19 survey/message.php');
-// }
-
-?>
