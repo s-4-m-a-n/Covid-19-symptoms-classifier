@@ -246,6 +246,7 @@
 table{
     text-align: center;
     box-shadow: none;
+    width:100%;
 }
 
 h4{
@@ -269,8 +270,8 @@ table th{
 .testResult{
     display: flex;
     flex-wrap: wrap;
-    min-width: 450px;
-    /*border: 1px solid black;*/
+    min-width: 500px;
+
 }
 
 #resultItem{
@@ -280,7 +281,7 @@ table th{
 
 .additionalInfo{
     /*border:1px solid black;*/
-    width:30%;
+    width:35%;
 }
 .additionalInfo h1{
     margin-top: 10%;
@@ -292,16 +293,16 @@ table th{
     margin-top: 30%;
 }
 
-@media screen and (max-width: 450px){
+@media  screen and (max-width: 450px){
     body{
         overflow-x: scroll;
     }
 }
 
-@media screen and (max-width: 1019px){
+@media  screen (max-width: 1019px){
 
     #resultItem{
-        width:90%;
+        width:80%;
         padding:5%;
     }
     .additionalInfo{
@@ -313,3 +314,7 @@ table th{
 
     }
 }
+
+
+
+
