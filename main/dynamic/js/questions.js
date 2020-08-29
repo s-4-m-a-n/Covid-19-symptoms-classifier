@@ -285,4 +285,10 @@ disableEnableFields(status);
 // ---------------- fetch sessionStorage
 
 
+// on refresh redirect to the main page
+
+
+
+
+
 
