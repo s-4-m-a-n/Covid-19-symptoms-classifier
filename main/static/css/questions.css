@@ -299,10 +299,10 @@ table th{
     }
 }
 
-@media  screen (max-width: 1019px){
+@media  screen and (max-width: 1019px){
 
     #resultItem{
-        width:80%;
+        width:90%;
         padding:5%;
     }
     .additionalInfo{
